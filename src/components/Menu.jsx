@@ -2,18 +2,52 @@ import { Link, useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 export default function Menu(props) {
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const [searchParams, setSearchParams] = useSearchParams()
+  const handleClose = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    props.toggleMenu();
+  };
+
+
+  const isChrome = () => {
+    const userAgent = navigator.userAgent;
+    const isChromeBrowser = userAgent.indexOf("Chrome") > -1;
+    return isChromeBrowser;
+  }
+
+  function whereToRickRoll(text) {
+    if (isChrome()) {
+      return (
+        <Link to="existing-inventory" onClick={props.toggleMenu}>
+          {text}
+        </Link>
+      )
+    } else {
+        return (
+          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">{text}</a>
+      )
+    }
+  }
 
   return (
     <div>
-
       <div className="menu--container">
-        <Link onClick={props.toggleMenu} className="backdrop" style={{
-          zIndex: props.isOpen ? 1 : -1, 
-        }} to="."></Link>
-        <div className="menu" style={{ right: props.isOpen ? 0 : "-320px", transition: "right 0.8s ease" }}>
-          <Link className="close-menu" to=".." onClick={props.toggleMenu}>
+        <Link
+          onClick={handleClose}
+          className="backdrop"
+          style={{ zIndex: props.isOpen ? 1 : -1 }}
+          to="."
+        ></Link>
+        <div
+          className="menu"
+          style={{
+            right: props.isOpen ? 0 : "-320px",
+            transition: "right 0.8s ease",
+          }}
+        >
+          <Link className="close-menu" to=".." onClick={handleClose}>
             &times;
           </Link>
           <nav className="menu-links">
@@ -35,9 +69,9 @@ export default function Menu(props) {
             <Link to="solarpanels" onClick={props.toggleMenu}>
               Solar Panels
             </Link>
-            <Link to="existing-inventory" onClick={props.toggleMenu}>
-              Existing Inventory
-            </Link>
+            {
+              whereToRickRoll("Existing Inventory")
+            }
             <Link to="used-inventory" onClick={props.toggleMenu}>
               Used Inventory
             </Link>

@@ -56,9 +56,9 @@ header {
   top: 0;
   z-index: 2;
   width: 100%;
-  height: 5vh;
-  background: rgba(0, 0, 0, 0.308);
-  backdrop-filter: blur(50px);
+  height: 10vh;
+  background: rgba(255, 255, 255, 0.562);
+  backdrop-filter: blur(5px);
 }
 
 #logo {
@@ -138,7 +138,7 @@ section a {
 
 section .content-titles {
   position: absolute;
-  top: 20%;
+  top: 15%;
   left: 0;
   width: 100%;
   text-align: center;
@@ -146,7 +146,7 @@ section .content-titles {
 
 section .buttons {
   position: absolute;
-  bottom: 20%;
+  bottom: 10%;
   left: 0;
   padding: 0 20px;
   width: 100vw;
@@ -203,6 +203,7 @@ section .buttons {
   padding: 40px 40px;  
   z-index: 999; /* Increase the z-index value */
   transition: right .4s ease-in;
+  overflow-y: scroll  ;
 }
 
 .menu nav {
@@ -260,7 +261,8 @@ section .buttons {
 .find-us, 
 .support, 
 .investor-relations, 
-.shop {
+.shop,
+.account {
   position: absolute;
   width: 100vw;
   height: 100vh;
@@ -298,7 +300,7 @@ section .buttons {
 }
 
 .roof {
-  background: url(./components/assets/roof.png);
+  background: url(./components/menu-components/assets/roof-2.png);
   background-size: cover;
   background-position: center center;
 }
@@ -379,4 +381,17 @@ section .buttons {
   background: url(./components/menu-components/assets/model3-2.jpg);
   background-size: cover;
   background-position: center center;
+}
+.account {
+  background: url(./components/menu-components/assets/model3-2.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+
+.player {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 90vh;
 }
