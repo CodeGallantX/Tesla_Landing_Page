@@ -11,7 +11,7 @@ export default function ExistingInventory() {
     window.onYouTubeIframeAPIReady = function () {
       player = new window.YT.Player("player", {
         height: "100%",
-        width: "100%",
+        width: "100",
         videoId: "dQw4w9WgXcQ",
         playerVars: {
           autoplay: 1,

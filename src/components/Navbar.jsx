@@ -1,5 +1,6 @@
 import { Link, Outlet } from "react-router-dom"
 import { useState } from "react"
+import { whereToRickRoll } from "./utils.jsx"
 
 import Menu from "./Menu.jsx"
 
@@ -10,6 +11,10 @@ export default function Navbar() {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  const closeMenu = () => {
+    setIsOpen(false);
+  }
 
   return (
     <>
@@ -26,8 +31,12 @@ export default function Navbar() {
           <Link to="solarpanels">Solar Panels</Link>
         </nav>
         <nav className="right">
-          <Link to="shop" className="desktop">Shop</Link>
-          <Link to="account" className="desktop">Account</Link>
+          {
+            whereToRickRoll("Shop", closeMenu)
+          }
+          {
+            whereToRickRoll("Account", closeMenu)
+          }
           <button onClick={toggleMenu}>Menu</button>
         </nav>
       </header>

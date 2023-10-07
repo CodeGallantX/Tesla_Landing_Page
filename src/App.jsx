@@ -22,7 +22,7 @@ import Support from "./components/menu-components/Support.jsx"
 import InvestorRelations from "./components/menu-components/InvestorRelations.jsx"
 import Shop from "./components/menu-components/Shop.jsx"
 import Account from "./components/menu-components/Account.jsx"
-
+import RickRoll from "./components/menu-components/RickRoll.jsx"
 
 import { createBrowserRouter, RouterProvider, createRoutesFromElements, Route } from "react-router-dom"
 
@@ -49,6 +49,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path="investor-relations" element={<InvestorRelations />} />
     <Route path="shop" element={<Shop />} />
     <Route path="account" element={<Account />} />
+    <Route path="rickroll" element={<RickRoll />} />
   </Route>
 ))
 

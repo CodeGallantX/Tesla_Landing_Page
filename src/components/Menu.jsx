@@ -1,7 +1,10 @@
 import { Link, useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { whereToRickRoll } from "./utils.jsx"
 
 export default function Menu(props) {
+
+
   const [searchParams, setSearchParams] = useSearchParams();
 
   const handleClose = (event) => {
@@ -9,27 +12,6 @@ export default function Menu(props) {
     event.stopPropagation();
     props.toggleMenu();
   };
-
-
-  const isChrome = () => {
-    const userAgent = navigator.userAgent;
-    const isChromeBrowser = userAgent.indexOf("Chrome") > -1;
-    return isChromeBrowser;
-  }
-
-  function whereToRickRoll(text) {
-    if (isChrome()) {
-      return (
-        <Link to="existing-inventory" onClick={props.toggleMenu}>
-          {text}
-        </Link>
-      )
-    } else {
-        return (
-          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">{text}</a>
-      )
-    }
-  }
 
   return (
     <div>
@@ -70,17 +52,17 @@ export default function Menu(props) {
               Solar Panels
             </Link>
             {
-              whereToRickRoll("Existing Inventory")
+              whereToRickRoll("Existing Inventory", props.toggleMenu)
             }
-            <Link to="used-inventory" onClick={props.toggleMenu}>
-              Used Inventory
-            </Link>
-            <Link to="trade-in" onClick={props.toggleMenu}>
-              Trade-in
-            </Link>
-            <Link to="test-drive" onClick={props.toggleMenu}>
-              Test Drive
-            </Link>
+            {
+              whereToRickRoll("Used Inventory", props.toggleMenu)
+            }
+            {
+              whereToRickRoll("Trade-In", props.toggleMenu)
+            }
+            {
+              whereToRickRoll("Test Drive", props.toggleMenu)
+            }
             <Link to="powerwall" onClick={props.toggleMenu}>
               Powerwall
             </Link>
@@ -93,21 +75,21 @@ export default function Menu(props) {
             <Link to="charging" onClick={props.toggleMenu}>
               Charging
             </Link>
-            <Link to="find-us" onClick={props.toggleMenu}>
-              Find Us
-            </Link>
-            <Link to="support" onClick={props.toggleMenu}>
-              Support
-            </Link>
-            <Link to="investor-relations" onClick={props.toggleMenu}>
-              Investor Relations
-            </Link>
-            <Link to="shop" onClick={props.toggleMenu}>
-              Shop
-            </Link>
-            <Link to="account" onClick={props.toggleMenu}>
-              Account
-            </Link>
+            {
+              whereToRickRoll("Find Us", props.toggleMenu)
+            }
+            {
+              whereToRickRoll("Support", props.toggleMenu)
+            }
+            {
+              whereToRickRoll("Investor Relations", props.toggleMenu)
+            }
+            {
+              whereToRickRoll("Shop", props.toggleMenu)
+            }
+            {
+              whereToRickRoll("Account", props.toggleMenu)
+            }
           </nav>
         </div>
       </div>

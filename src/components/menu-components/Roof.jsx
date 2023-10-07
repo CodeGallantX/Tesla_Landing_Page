@@ -5,29 +5,27 @@ export default function Roof() {
   return (
     <div className="roof">
       <div className="top-section">
-        <h2>Solar Roof</h2>
+        <h3 style={{color: "white"}}>Solar Roof</h3>
       </div>
-      <div className="bottom-middle-section">
-        <div className="top">
-          <div className="bottom-middle-section-item">
-            <img width="50px" src={solarIcon} alt="" />
-            <p>Beautiful</p>
-            <p>Solar</p>
+      <div style={{color: "white"}} className="bottom-middle-section">
+          <div style={{paddingTop: "100px"}} className="bottom-middle-section-item">
+            <img width="30px" src={solarIcon} alt="" />
+            <p style={{fontSize: "0.8rem"}}>Beautiful</p>
+            <p style={{fontSize: "0.8rem"}}>Solar</p>
           </div>
-          <div className="bottom-middle-section-item">
-            <h4>25-Year</h4>
-            <p>Tile</p>
-            <p>Warranty</p>
+          <div style={{paddingTop: "100px"}} className="bottom-middle-section-item">
+            <h4 style={{fontSize: "1.2rem"}}>25-Year</h4>
+            <p style={{fontSize: "0.8rem"}}>Tile</p>
+            <p style={{fontSize: "0.8rem"}}>Warranty</p>
           </div>
-          <div className="bottom-middle-section-item">
-            <h4>24/7</h4>
-            <p>Outage</p>
-            <p>Protection</p>
+          <div style={{paddingTop: "100px"}} className="bottom-middle-section-item">
+            <h4 style={{fontSize: "1.2rem"}}>24/7</h4>
+            <p style={{fontSize: "0.8rem"}}>Outage</p>
+            <p style={{fontSize: "0.8rem"}}>Protection</p>
           </div>
-          <div className="bottom-middle-section-item">
+          <div style={{paddingTop: "100px"}} className="bottom-middle-section-item roof-button-container">
             <a href="#">Order Now</a>
           </div>
-        </div>
       </div>
     </div>
   )
