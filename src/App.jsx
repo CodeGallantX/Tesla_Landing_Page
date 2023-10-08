@@ -56,6 +56,8 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path="shop" element={<Shop />} loader={shopLoader} />
     <Route path="account" element={<Account />} loader={accountLoader} />
     <Route path="rickroll" element={<RickRoll />} loader={rickRollLoader} />
+    <Route path="error-element" element={<ErrorComponent />} />
+    
   </Route>
 ))
 
