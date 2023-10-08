@@ -10,17 +10,16 @@ export default function Solarpanels() {
         </div>
       </div>
       <div className="bottom-container">
-        <div className="bottom-card">
+        <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}  className="bottom-card">
 
-          <div className="bottom-middle-section">
-            <div style={{display: "flex", gap: "70px", alignItems: "center", justifyContent: "center"}} className="top">
+          <div style={{margin: "0"}} className="bottom-middle-section">
               <div className="bottom-middle-section-item">
                 <h4>$</h4>
                 <p>Guaranteed Lowest</p>
                 <p>Price in America</p>
               </div>
               <div className="bottom-middle-section-item">
-                <img width="50px" src={solarImg} alt="" />
+                <img width="30px" src={solarImg} alt="" />
                 <p>Integrated</p>
                 <p>Product Ecosystem</p>
               </div>
@@ -32,7 +31,6 @@ export default function Solarpanels() {
               <div className="bottom-middle-section-item">
                 <a href="#">Order Now</a>
               </div>
-            </div>
           </div>
         </div>
       </div>

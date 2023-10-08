@@ -3,8 +3,8 @@ import Home from "./components/Home.jsx"
 import Navbar from './components/Navbar'
 
 
-import ModelS from "./components/menu-components/ModelS.jsx"
-import ModelX from "./components/menu-components/ModelX.jsx"
+import ModelS, { loader as modelSLoader } from "./components/menu-components/ModelS.jsx"
+import ModelX, { loader as modelXLoader } from "./components/menu-components/ModelX.jsx"
 import ModelY from "./components/menu-components/ModelY.jsx"
 import Model3 from "./components/menu-components/Model3.jsx"
 import Roof from "./components/menu-components/Roof.jsx"
@@ -26,12 +26,13 @@ import RickRoll from "./components/menu-components/RickRoll.jsx"
 
 import { createBrowserRouter, RouterProvider, createRoutesFromElements, Route } from "react-router-dom"
 
+import LoaderComponent from "./components/LoaderComponent.jsx"
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<Navbar />}>
     <Route index element={<Home />}></Route>
-    <Route path="model-s" element={<ModelS />} />
-    <Route path="model-x" element={<ModelX />} />
+    <Route path="model-s" element={<ModelS />} loader={modelSLoader} />
+    <Route path="model-x" element={<ModelX />} loader={modelXLoader} />
     <Route path="model-y" element={<ModelY />} />
     <Route path="model-3" element={<Model3 />} />
     <Route path="roof" element={<Roof />} />

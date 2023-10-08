@@ -31,12 +31,14 @@ export default function Navbar() {
           <Link to="solarpanels">Solar Panels</Link>
         </nav>
         <nav className="right">
-          {
-            whereToRickRoll("Shop", closeMenu)
-          }
-          {
-            whereToRickRoll("Account", closeMenu)
-          }
+          <div className="shop-link">
+            {whereToRickRoll("Shop", closeMenu)}
+          </div>
+          <div className="account-link">
+            {
+              whereToRickRoll("Account", closeMenu)
+            }
+          </div>
           <button onClick={toggleMenu}>Menu</button>
         </nav>
       </header>

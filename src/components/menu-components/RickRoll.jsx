@@ -42,6 +42,7 @@ export default function RickRoll() {
   }
 
   return (
+    
     <div className="rickroll">
       <div id="player" ref={playerRef}></div>
     </div>

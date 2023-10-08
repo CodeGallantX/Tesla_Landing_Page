@@ -12,26 +12,28 @@ export default function Model3() {
         </div>
         <div className="bottom-container">
           <div className="bottom-card">
+            <div className="middle-section-items">
 
-            <div style={{ flexDirection: "column", gap: "20px"}} className="bottom-middle-section">
-              <div style={{ display: "flex", gap: "70px"}} className="top">
-                <div className="bottom-middle-section-item">
-                  <h4>3.1 s</h4>
-                  <p>0-60 mph†</p>
+              <div style={{ flexDirection: "column", gap: "20px"}} className="bottom-middle-section">
+                <div style={{ display: "flex", gap: "70px"}} className="top">
+                  <div className="bottom-middle-section-item">
+                    <h4>3.1 s</h4>
+                    <p>0-60 mph†</p>
+                  </div>
+                  <div className="bottom-middle-section-item">
+                    <h4>333 mi</h4>
+                    <p>Range (EPA est.)</p>
+                  </div>
+                  <div className="bottom-middle-section-item">
+                    <h4>AWD</h4>
+                    <p>Dual Motor</p>
+                  </div>
                 </div>
-                <div className="bottom-middle-section-item">
-                  <h4>333 mi</h4>
-                  <p>Range (EPA est.)</p>
-                </div>
-                <div className="bottom-middle-section-item">
-                  <h4>AWD</h4>
-                  <p>Dual Motor</p>
-                </div>
-              </div>
-              <div className="bottom">
-                <a href="#">Expore Inventory</a>
-                <a href="#">Custom Order</a>
-              </div>
+            </div>
+            <div className="bottom">
+              <a href="#">Expore Inventory</a>
+              <a href="#">Custom Order</a>
+            </div>
             </div>
             <div className="bottom-section">
               <p>*Price before incentives and savings is $38,990, excluding taxes and fees. Subject to change.</p>

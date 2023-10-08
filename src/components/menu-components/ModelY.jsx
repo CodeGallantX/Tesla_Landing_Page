@@ -10,20 +10,22 @@ export default function ModelY() {
       </div>
       <div className="bottom-container">
         <div className="bottom-card">
+          <div className="bottom-middle-section">
 
-          <div style={{flexDirection: "column", gap: "20px"}} className="bottom-middle-section">
-            <div style={{display: "flex", gap: "70px"}} className="top">
-              <div className="bottom-middle-section-item">
-                <h4>76 cu ft</h4>
-                <p>Cargo Space</p>
-              </div>
-              <div className="bottom-middle-section-item">
-                <h4>330 mi</h4>
-                <p>Range (EPA est.)</p>
-              </div>
-              <div className="bottom-middle-section-item">
-                <h4>AWD</h4>
-                <p>Dual Motor</p>
+            <div style={{flexDirection: "column", gap: "20px"}} className="bottom-middle-section">
+              <div style={{display: "flex", gap: "70px"}} className="top">
+                <div className="bottom-middle-section-item">
+                  <h4>76 cu ft</h4>
+                  <p>Cargo Space</p>
+                </div>
+                <div className="bottom-middle-section-item">
+                  <h4>330 mi</h4>
+                  <p>Range (EPA est.)</p>
+                </div>
+                <div className="bottom-middle-section-item">
+                  <h4>AWD</h4>
+                  <p>Dual Motor</p>
+                </div>
               </div>
             </div>
             <div className="bottom">
