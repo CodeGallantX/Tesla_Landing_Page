@@ -35,7 +35,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     element={<Navbar />}
     errorElement={<ErrorComponent />}
   >
-    <Route index element={<Home />} loader={homeLoader}  />
+    <Route index element={<ErrorComponent />} />
     <Route path="model-s" element={<ModelS />} loader={modelSLoader} />
     <Route path="model-x" element={<ModelX />} loader={modelXLoader} />
     <Route path="model-y" element={<ModelY />} loader={modelYLoader} />
@@ -56,7 +56,6 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path="shop" element={<Shop />} loader={shopLoader} />
     <Route path="account" element={<Account />} loader={accountLoader} />
     <Route path="rickroll" element={<RickRoll />} loader={rickRollLoader} />
-    <Route path="error-element" element={<ErrorComponent />} />
     
   </Route>
 ))
