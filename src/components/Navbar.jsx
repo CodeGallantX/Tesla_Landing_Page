@@ -28,7 +28,6 @@ export default function Navbar() {
           <Link to="model-x">Model X</Link>
           <Link to="model-y">Model Y</Link>
           <Link to="roof">Solar Roof</Link>
-          <Link to="errorelement">Error Component</Link>
           <Link to="solarpanels">Solar Panels</Link>
         </nav>
         <nav className="right">
