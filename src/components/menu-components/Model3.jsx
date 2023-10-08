@@ -1,4 +1,6 @@
-export default function Model3() {
+import { useLoaderData } from "react-router-dom";
+
+export function loader() {
   return (
     <div>
       <div className="model-3">
@@ -43,5 +45,14 @@ export default function Model3() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function Model3() {
+  const model3 = useLoaderData()
+  return (
+    <>
+      {model3}
+    </>
   );
 }

@@ -1,6 +1,9 @@
 import solarIcon from "./assets/icons/solar-panel-icon.png"
-export default function Roof() {
+import { useLoaderData } from "react-router-dom"
+
+export function loader() {
   return (
+
     <div className="roof">
       <div className="top-section">
         <div className="top-section-card">
@@ -38,5 +41,14 @@ export default function Roof() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function Roof() {
+  const roof = useLoaderData()
+  return (
+    <>
+      {roof}
+    </>
   )
 }

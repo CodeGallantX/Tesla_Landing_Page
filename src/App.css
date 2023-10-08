@@ -280,7 +280,8 @@ section .buttons {
 .support, 
 .investor-relations, 
 .shop,
-.account
+.account,
+.errorComponent
 {
   position: absolute;
   width: 100vw;
@@ -1167,6 +1168,43 @@ section .buttons {
   width: 100vw;
   height: 90vh;
 }
+
+.errorComponent {
+  background: white;
+}
+
+.errorComponent h1 {
+  font-size: 10rem;
+  color: darkblue;
+  text-shadow: 6px 3px 5px rgba(0,0,0,0.5); 
+}
+
+.errorComponent p {
+  max-width: 60%;
+  color: purple;
+}
+
+.errorComponent a {
+  font-size: 0.7rem;
+  text-decoration: none;
+  color: white;
+  margin-top: 20px;
+  font-weight: bold;
+  background: darkblue;
+  border-radius: 5px;
+  padding: 10px 30px;
+  transition: .3s;
+  cursor: pointer;
+}
+
+.errorComponent a:hover {
+  transform: scale(1.05);
+  background: transparent;
+  border: 2px solid black;
+  color: black;
+}
+
+
 
 @media (max-width: 900px) {
   .top-section {

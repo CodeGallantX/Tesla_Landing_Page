@@ -1,7 +1,9 @@
 import bolt from "./assets/icons/bolt.png"
+import { useLoaderData } from "react-router-dom"
 
-export default function Charging() {
+export function loader() {
   return (
+
     <div className="charging">
       <div className="top-section">
         <h2>Stay Charged</h2>
@@ -23,5 +25,14 @@ export default function Charging() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function Charging() {
+  const charging = useLoaderData()
+  return (
+    <>
+      {charging}
+    </>
   )
 }

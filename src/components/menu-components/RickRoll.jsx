@@ -1,6 +1,16 @@
 import { useEffect, useRef } from "react";
 import { destroyPlayer } from "../youtube.js";
 
+import { useLoaderData } from "react-router-dom";
+
+export function loader(playerRef) {
+  return (
+    <div className="rickroll">
+      <div id="player" ref={playerRef}></div>
+    </div>
+  )
+}
+
 export default function RickRoll() {
   const playerRef = useRef(null);
 
@@ -40,11 +50,13 @@ export default function RickRoll() {
   function onPlayerReady(event) {
     event.target.playVideo();
   }
+  
+  const rickroll = useLoaderData()
 
   return (
-    
-    <div className="rickroll">
-      <div id="player" ref={playerRef}></div>
-    </div>
+    <>
+      {loader(playerRef)}
+      {rickroll}
+    </>
   );
 }

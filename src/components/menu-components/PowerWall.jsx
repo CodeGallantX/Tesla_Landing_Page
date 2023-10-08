@@ -1,7 +1,8 @@
 import storeEnergy from "./assets/icons/energy.png"
 import protectHome from "./assets/icons/home-energy.png"
+import { useLoaderData } from "react-router-dom"
 
-export default function PowerWall() {
+export function loader() {
   return (
     <div className="powerwall">
       <div className="top-section">
@@ -37,5 +38,15 @@ export default function PowerWall() {
         </div>
       </div>
     </div>
+    
+  )
+}
+
+export default function PowerWall() {
+  const powerWall = useLoaderData()
+  return (
+    <>
+      {powerWall}
+    </>
   )
 }

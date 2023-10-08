@@ -1,4 +1,6 @@
-export default function ModelY() {
+import { useLoaderData } from "react-router-dom"
+
+export function loader() {
   return (
     <div className="model-y">
       <div className="top-section">
@@ -40,5 +42,15 @@ export default function ModelY() {
         </div>
       </div>
     </div>
-  );
+
+  )
+}
+
+export default function ModelY() {
+  const modelY = useLoaderData()
+  return (
+    <>
+      {modelY}
+    </>
+  )
 }

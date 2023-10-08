@@ -1,6 +1,7 @@
 import solarImg from "./assets/icons/solar-panel-icon.png"
+import { useLoaderData } from "react-router-dom"
 
-export default function Solarpanels() {
+export function loader() {
   return (
     <div className="solarpanels">
       <div className="top-section">
@@ -35,5 +36,15 @@ export default function Solarpanels() {
         </div>
       </div>
     </div>
+
+  )
+}
+
+export default function Solarpanels() {
+  const solarpanels = useLoaderData()
+  return (
+    <>
+      {solarpanels}
+    </>
   )
 }

@@ -1,5 +1,8 @@
-export default function CommercialEnergy() {
+import { useLoaderData } from "react-router-dom"
+
+export function loader() {
   return (
+
     <div className="commercial-energy">
       <div className="top-section">
         <h2 style={{color: "white", fontSize: "2.3rem"}} >Commercial Energy</h2>
@@ -30,5 +33,14 @@ export default function CommercialEnergy() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function CommercialEnergy() {
+  const commercialEnergy = useLoaderData()
+  return (
+    <>
+      {commercialEnergy}
+    </>
   )
 }

@@ -1,5 +1,8 @@
-export default function Utilities() {
+import { useLoaderData } from "react-router-dom"
+
+export function loader() {
   return (
+
     <div className="utilities">
       <div className="top-section">
         <h2 style={{color: "white", fontSize: "2.3rem"}} >Utilities</h2>
@@ -30,5 +33,14 @@ export default function Utilities() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function Utilities() {
+  const utilies = useLoaderData()
+  return (
+    <>
+      {utilies}
+    </>
   )
 }
