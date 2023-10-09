@@ -1,8 +1,10 @@
 import { useLoaderData } from "react-router-dom";
+import model3Video from "/videos/model-3.mp4"
 
 export function loader() {
   return (
     <div>
+      <video src={model3Video} autoPlay muted loop></video>
       <div className="model-3">
         <div className="top-section">
           <div className="top-section-card">

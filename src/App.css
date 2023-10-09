@@ -318,9 +318,6 @@ section .buttons {
 }
 
 .top-section-card {
-  background: rgba(0, 0, 0, 0.336);
-  backdrop-filter: blur(50px);
-  border-radius: 10px;
   width: fit-content;
   margin: 0 auto;
   padding: 20px;
@@ -350,11 +347,6 @@ section .buttons {
 
 .bottom-card {
   padding: 20px;
-  background: rgba(105, 21, 21, 0.753);
-  border-radius: 20px;
-  backdrop-filter: blur(50px);
-  border-left: 1px solid white;
-  border-top: 1px solid white;
 }
 
 .bottom-middle-section {
@@ -546,16 +538,12 @@ section .buttons {
 
 
 .model-s {
-  background: url(./components/menu-components/assets/models-2.jpg);
-  background-size: cover;
-  background-position: center center;
+
 }
 
 
 .model-x {
-  background: url(./components/menu-components/assets/modelx-2.jpg);
-  background-size: cover;
-  background-position: center center;
+
 }
 
 .model-x .middle-section-items {
@@ -650,9 +638,6 @@ section .buttons {
 
 
 .model-y {
-  background: url(./components/menu-components/assets/modely-2.jpg);
-  background-size: cover;
-  background-position: center center;
 }
 
 .model-y .middle-section-items {
@@ -749,9 +734,7 @@ section .buttons {
 
 
 .model-3 {
-  background: url(./components/menu-components/assets/model3-2.jpg);
-  background-size: cover;
-  background-position: center center;
+
 }
 
 .model-3 .middle-section-items {
@@ -953,9 +936,6 @@ section .buttons {
 
 
 .solarpanels {
-  background: url(./components/menu-components/assets/solarpanels.png);
-  background-size: cover;
-  background-position: center center;
 }
 
 .existing-inventory{
@@ -1205,7 +1185,6 @@ section .buttons {
 }
 
 
-
 @media (max-width: 900px) {
   .top-section {
     padding-top: 20vh;
@@ -1220,4 +1199,16 @@ section .buttons {
   .top-section-card p {
     font-size: 0.6rem;
   }
+}
+
+video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  overflow: hidden;
+  
 }

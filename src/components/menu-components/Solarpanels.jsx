@@ -1,9 +1,11 @@
 import solarImg from "./assets/icons/solar-panel-icon.png"
 import { useLoaderData } from "react-router-dom"
+import solarpanelsVideo from "/videos/solarpanels.mp4" 
 
 export function loader() {
   return (
     <div className="solarpanels">
+      <video src={solarpanelsVideo} autoPlay muted loop></video>
       <div className="top-section">
         <div className="top-section-card">
           <h2>Solar Panels for Your Home</h2>

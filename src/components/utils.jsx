@@ -16,7 +16,7 @@ export function whereToRickRoll(text, toggleMenu) {
     )
   } else {
       return (
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">{text}</a>
+        <a target="_blank" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">{text}</a>
     )
   }
 }

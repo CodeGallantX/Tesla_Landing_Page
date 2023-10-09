@@ -1,8 +1,10 @@
 import { useLoaderData } from "react-router-dom"
+import modelXVideo from "/videos/model-x.mp4"
 
 export function loader() {
   return (
     <div className="model-x">
+      <video src={modelXVideo} autoPlay muted loop></video>
       <div className="top-section">
         <div className="top-section-card">
           <h3>Model X</h3>
