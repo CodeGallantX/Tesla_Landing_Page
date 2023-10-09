@@ -3,7 +3,6 @@ import Home, { loader as homeLoader } from "./components/Home.jsx"
 import Navbar from './components/Navbar'
 import ErrorComponent from './components/ErrorComponent'
 
-
 import ModelS, { loader as modelSLoader } from "./components/menu-components/ModelS.jsx"
 import ModelX, { loader as modelXLoader } from "./components/menu-components/ModelX.jsx"
 import ModelY, { loader as modelYLoader } from "./components/menu-components/ModelY.jsx"
@@ -33,7 +32,6 @@ const router = createBrowserRouter(createRoutesFromElements(
   <Route 
     path="/" 
     element={<Navbar />}
-    
   >
     <Route index element={<Home />} loader={homeLoader}  />
     <Route path="model-s" element={<ModelS />} loader={modelSLoader} />

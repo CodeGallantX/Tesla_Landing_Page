@@ -281,7 +281,9 @@ section .buttons {
 .investor-relations, 
 .shop,
 .account,
-.errorComponent
+.errorComponent,
+.sign-in-component,
+.sign-in-container
 {
   position: absolute;
   width: 100vw;

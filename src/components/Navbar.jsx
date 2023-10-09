@@ -1,6 +1,7 @@
 import { Link, Outlet } from "react-router-dom"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { whereToRickRoll } from "./utils.jsx"
+import SignIn from './Signin/SignIn.jsx'
 
 import Menu from "./Menu.jsx"
 
@@ -15,6 +16,24 @@ export default function Navbar() {
   const closeMenu = () => {
     setIsOpen(false);
   }
+
+  function handleSignIn(email) {
+    setEmail(email);
+  }
+
+  const [email, setEmail] = useState(localStorage.getItem("email"))
+
+  function seeIfSignedIn() {
+    if (email) {
+      return true
+    } else {
+      return false
+    }
+  }
+  
+  useEffect(() => {
+    setEmail(seeIfSignedIn)
+  }, [email])
 
   return (
     <>
@@ -43,7 +62,16 @@ export default function Navbar() {
         </nav>
       </header>
       <Menu isOpen={isOpen} toggleMenu={toggleMenu}/>
-      <Outlet />
+      <SignIn />
+      {
+        email ? (
+          <Outlet />
+        ) : (
+          <div className="sign-in-container">
+            <SignIn onSignIn={handleSignIn} />
+          </div>
+        )
+      }
     </>
   )
 }
