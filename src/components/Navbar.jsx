@@ -35,6 +35,9 @@ export default function Navbar() {
     setEmail(seeIfSignedIn)
   }, [email])
 
+  function logOut() {
+    localStorage.removeItem("email")
+  }
   return (
     <>
       <header>
@@ -51,7 +54,8 @@ export default function Navbar() {
         </nav>
         <nav className="right">
           <div className="shop-link">
-            {whereToRickRoll("Shop", closeMenu)}
+            {/* {whereToRickRoll("Shop", closeMenu)} */}
+            <button onClick={logOut}>Log Out</button>
           </div>
           <div className="account-link">
             {
