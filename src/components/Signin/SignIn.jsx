@@ -2,7 +2,7 @@ import { auth, googleProvider, githubProvider } from "./config.js"
 import { signInWithEmailAndPassword, signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth"
 import Home from "../Home.jsx"
 
-import { redirect, Navigate } from "react-router-dom" // Import redirect function
+import { redirect, Navigate, Link } from "react-router-dom" // Import redirect function
 import { useState, useEffect } from "react"
 
 
@@ -17,7 +17,7 @@ export default function SignIn({ onSignIn }) {
         setValue(email)
         onSignIn(email)
       }
-    }, 2000) // Wait for 2 seconds before checking localStorage
+    }, 2000)
     return () => clearTimeout(timeoutId)
   }, [onSignIn])
 
@@ -72,48 +72,61 @@ export default function SignIn({ onSignIn }) {
     console.log("localStorage:", localStorage.getItem("email"))
     if (value) {
       console.log("Redirecting to home page...")
-      redirect("/")
+      redirect("/home")
     }
   }, [value])
 
   return (
-    <div className="sign-in-container">
+    <div className="auth-container">
       {value ? (
-        <Navigate to="/" />
+        <Navigate to="/home" />
       )
         : (
-          <div className="sign-in-component">
-            <form onSubmit={(e) => {
+          <div className="auth-component">
+            <form className="sign-up" onSubmit={(e) => {
               e.preventDefault()
               const email = e.target.email.value
               const password = e.target.password.value
               handleEmailSignUp(email, password)
             }}>
-              <button onClick={() => handleClick('google')}>
-              Sign in with Google
-              </button>
-              <button onClick={() => handleClick('github')}>
-                Sign in with GitHub
-              </button>
+              <Link className="close-auth" to="/home">
+                &times;
+              </Link>
+              <h1>Register</h1>
+              <div className="sign-in-methods-container">
+                <div className="google-sign-in">
+                  <button onClick={() => handleClick('google')}>
+                    <i className='bx bxl-google google-icon' ></i>
+                  Sign in with Google
+                  </button>
+                </div>
+
+                <div className="github-sign-in">
+                  <button onClick={() => handleClick('github')}>
+                    <i className='bx bxl-github github-icon '></i>
+                    Sign in with GitHub
+                  </button>
+                </div>
+              </div>
               <input type="email" name="email" placeholder="Email" required />
               <input type="password" name="password" placeholder="Password" required />
-              <button type="submit">Sign up with Email</button>
+              <button className="auth-register-buttons" type="submit">Register</button>
             </form>
-            <form onSubmit={(e) => {
+            <form className="sign-in" onSubmit={(e) => {
               e.preventDefault()
               const email = e.target.email.value
               const password = e.target.password.value
               handleEmailSignIn(email, password)
             }}>
+              <h1>Login</h1>
               <input type="email" name="email" placeholder="Email" required />
               <input type="password" name="password" placeholder="Password" required />
-              <button type="submit">Sign in with Email</button>
+              <button id="log-in-button" className="auth-register-buttons" type="submit">Login</button>
             </form>
-
           </div>
         )
       }
-    
     </div>
   )
 }
+
