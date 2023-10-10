@@ -3,10 +3,11 @@ import { useState, useEffect } from "react"
 import { whereToRickRoll } from "./utils.jsx"
 import SignIn from './Signin/SignIn.jsx'
 
+import { seeIfLoggedIn } from "./Signin/SignIn.jsx"
+
 import Menu from "./Menu.jsx"
 
-export default function Navbar() {
-
+export default function Navbar({ isLoggedIn, setIsLoggedIn }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -15,10 +16,12 @@ export default function Navbar() {
 
   const closeMenu = () => {
     setIsOpen(false);
-  }
+  };
 
   function logOut() {
-    localStorage.removeItem("email")
+    localStorage.removeItem("email");
+    setIsLoggedIn(false);
+    window.location.reload();
   }
   return (
     <>
@@ -36,8 +39,11 @@ export default function Navbar() {
         </nav>
         <nav className="right">
           <div className="shop-link">
-            {/* {whereToRickRoll("Shop", closeMenu)} */}
-            <button onClick={logOut}>Log Out</button>
+          {isLoggedIn ? (
+              <button onClick={logOut}>Log Out</button>
+            ) : (
+              <Link to="/">Login</Link>
+            )}
           </div>
           <div className="account-link">
             {

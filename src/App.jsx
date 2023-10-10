@@ -30,15 +30,19 @@ import SignIn from './components/Signin/SignIn';
 
 function App() {
   const [email, setEmail] = useState(localStorage.getItem('email'));
+  const [isLoggedIn, setIsLoggedIn] = useState(seeIfSignedIn());
 
   function handleSignIn(email) {
     setEmail(email);
     localStorage.setItem('email', email);
+    setIsLoggedIn(true);
   }
 
   function seeIfSignedIn() {
     return email !== null;
   }
+
+
 
   useEffect(() => {
     setEmail(localStorage.getItem('email'));
@@ -46,7 +50,7 @@ function App() {
 
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<Navbar />}>
+      <Route path="/" element={<Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}>
         <Route index element={<SignIn onSignIn={handleSignIn} />} loader={homeLoader} />
         <Route path="home" element={<Home />} loader={homeLoader} />
         <Route path="model-s" element={<ModelS />} loader={modelSLoader} />
