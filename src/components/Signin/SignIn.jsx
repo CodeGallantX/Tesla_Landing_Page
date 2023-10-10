@@ -1,14 +1,15 @@
 import { auth, googleProvider, githubProvider } from "./config.js" 
-import { signInWithEmailAndPassword, signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth"
+import { signInWithEmailAndPassword, signInWithPopup, createUserWithEmailAndPassword, fetchSignInMethodsForEmail } from "firebase/auth"
 import Home from "../Home.jsx"
 
-import { redirect, Navigate, Link } from "react-router-dom" // Import redirect function
+import { Link, useNavigate } from "react-router-dom" // Import useNavigate hook
 import { useState, useEffect } from "react"
 
 
 export default function SignIn({ onSignIn }) {
 
   const [ value, setValue ] = useState()
+  const [ error, setError ] = useState({ signIn: null, signUp: null }) // Initialize error state to null for both forms
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -28,9 +29,11 @@ export default function SignIn({ onSignIn }) {
         setValue(userCredential.user.email)
         localStorage.setItem("email", userCredential.user.email)
         onSignIn(userCredential.user.email) // Call onSignIn callback function
+        setError({ signIn: null, signUp: null }) // Clear error state on successful sign-in for both forms
       })
       .catch((error) => {
         console.error(`Error signing in with email:`, error)
+        setError({ signIn: "Invalid credentials", signUp: null }) // Set error state for sign-in form only
       })
   }
 
@@ -41,9 +44,11 @@ export default function SignIn({ onSignIn }) {
         setValue(userCredential.user.email)
         localStorage.setItem("email", userCredential.user.email)
         onSignIn(userCredential.user.email) // Call onSignIn callback function
+        setError({ signIn: null, signUp: null }) // Clear error state on successful sign-up for both forms
       })
       .catch((error) => {
         console.error(`Error signing up with email:`, error)
+        setError({ signIn: null, signUp: "Invalid credentials" }) // Set error state for sign-up form only
       });
   }
   
@@ -65,34 +70,64 @@ export default function SignIn({ onSignIn }) {
       setValue(data.user.email)
       localStorage.setItem("email", data.user.email)
       onSignIn(data.user.email) // Call onSignIn callback function
+      setError({ signIn: null, signUp: null }) // Clear error state on successful sign-in for both forms
+    }).catch((error) => {
+      console.error(`Error signing in with ${provider}:`, error)
+      if (provider === 'github') {
+        setError({ signIn: null, signUp: "Invalid credentials" }) // Set error state for sign-up form only
+      } else {
+        setError({ signIn: "Invalid credentials", signUp: null }) // Set error state for sign-in form only
+      }
     })
   }
+
+  const navigate = useNavigate() // Use useNavigate hook to navigate to home page
 
   useEffect(() => {
     console.log("localStorage:", localStorage.getItem("email"))
     if (value) {
       console.log("Redirecting to home page...")
-      redirect("/home")
+      navigate("/home") // Navigate to home page
     }
-  }, [value])
+  }, [value, navigate])
+
+  useEffect(() => {
+    if (error.signIn && error.signIn.code === "auth/account-exists-with-different-credential") {
+      fetchSignInMethodsForEmail(auth, error.signIn.email).then((methods) => {
+        setError({ signIn: `This email is already associated with a different sign-in method: ${methods.join(", ")}`, signUp: null }) // Set error state for sign-in form only
+      }).catch((error) => {
+        console.error(`Error fetching sign-in methods for email:`, error)
+        setError({ signIn: "Invalid credentials", signUp: null }) // Set error state for sign-in form only
+      })
+    }
+  }, [error.signIn])
+
+  const handleRegisterSubmit = (e) => {
+    e.preventDefault()
+    const email = e.target.email.value
+    const password = e.target.password.value
+    handleEmailSignUp(email, password)
+  }
+
+  const handleLoginSubmit = (e) => {
+    e.preventDefault()
+    const email = e.target.email.value
+    const password = e.target.password.value
+    handleEmailSignIn(email, password)
+  }
 
   return (
     <div className="auth-container">
       {value ? (
-        <Navigate to="/home" />
+        navigate("/home") // Navigate to home page
       )
         : (
           <div className="auth-component">
-            <form className="sign-up" onSubmit={(e) => {
-              e.preventDefault()
-              const email = e.target.email.value
-              const password = e.target.password.value
-              handleEmailSignUp(email, password)
-            }}>
-              <Link className="close-auth" to="/home">
+            <form className="sign-up" onSubmit={handleRegisterSubmit}>
+              
+              <h1>Register<Link className="close-auth" to="/home">
                 &times;
-              </Link>
-              <h1>Register</h1>
+              </Link></h1>
               <div className="sign-in-methods-container">
                 <div className="google-sign-in">
                   <button onClick={() => handleClick('google')}>
@@ -111,17 +146,14 @@ export default function SignIn({ onSignIn }) {
               <input type="email" name="email" placeholder="Email" required />
               <input type="password" name="password" placeholder="Password" required />
               <button className="auth-register-buttons" type="submit">Register</button>
+              {error.signUp && <p className="error-message">{error.signUp}</p>} {/* Display error message for sign-up form only */}
             </form>
-            <form className="sign-in" onSubmit={(e) => {
-              e.preventDefault()
-              const email = e.target.email.value
-              const password = e.target.password.value
-              handleEmailSignIn(email, password)
-            }}>
+            <form className="sign-in" onSubmit={handleLoginSubmit}>
               <h1>Login</h1>
               <input type="email" name="email" placeholder="Email" required />
               <input type="password" name="password" placeholder="Password" required />
               <button id="log-in-button" className="auth-register-buttons" type="submit">Login</button>
+              {error.signIn && <p className="error-message">{error.signIn}</p>} {/* Display error message for sign-in form only */}
             </form>
           </div>
         )
@@ -129,4 +161,3 @@ export default function SignIn({ onSignIn }) {
     </div>
   )
 }
-
