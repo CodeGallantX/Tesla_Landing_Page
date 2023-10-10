@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,  useLayoutEffect } from 'react';
 import './App.css';
 import Home, { loader as homeLoader } from './components/Home.jsx';
 import Navbar from './components/Navbar';
@@ -29,8 +29,10 @@ import { createBrowserRouter, RouterProvider, createRoutesFromElements, Route } 
 import SignIn from './components/Signin/SignIn';
 
 function App() {
+
   const [email, setEmail] = useState(localStorage.getItem('email'));
   const [isLoggedIn, setIsLoggedIn] = useState(seeIfSignedIn());
+
 
   function handleSignIn(email) {
     setEmail(email);
@@ -41,11 +43,14 @@ function App() {
   function seeIfSignedIn() {
     return email !== null;
   }
-
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, [window.location.pathname]);
 
 
   useEffect(() => {
     setEmail(localStorage.getItem('email'));
+
   }, []);
 
   const router = createBrowserRouter(
