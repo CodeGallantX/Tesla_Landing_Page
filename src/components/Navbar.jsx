@@ -40,7 +40,7 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn }) {
         <nav className="right">
           <div className="shop-link">
           {isLoggedIn ? (
-              <button onClick={logOut}>Log Out</button>
+              <button onClick={logOut}>Log-out</button>
             ) : (
               <Link to="/">Login</Link>
             )}
