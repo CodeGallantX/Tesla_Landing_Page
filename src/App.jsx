@@ -1,32 +1,35 @@
 import React, { useState, useEffect,  useLayoutEffect } from 'react';
 import './App.css';
-import Home, { loader as homeLoader } from './components/Home.jsx';
+import Home, { loader as homeLoader } from './pages/Home/Home';
 import Navbar from './components/Navbar';
 import ErrorComponent from './components/ErrorComponent';
 
-import ModelS, { loader as modelSLoader } from './components/menu-components/ModelS.jsx';
-import ModelX, { loader as modelXLoader } from './components/menu-components/ModelX.jsx';
-import ModelY, { loader as modelYLoader } from './components/menu-components/ModelY.jsx';
-import Model3, { loader as model3Loader } from './components/menu-components/Model3.jsx';
-import Roof, { loader as roofLoader } from './components/menu-components/Roof.jsx';
-import Solarpanels, { loader as solarpanelsLoader } from './components/menu-components/Solarpanels.jsx';
-import ExistingInventory, { loader as existingInventoryLoader } from './components/menu-components/ExistingInventory.jsx';
-import UsedInventory, { loader as usedInventoryLoader } from './components/menu-components/UsedInventory.jsx';
-import TradeIn, { loader as tradeInLoader } from './components/menu-components/TradeIn.jsx';
-import TestDrive, { loader as testDriveLoader } from './components/menu-components/TestDrive.jsx';
-import PowerWall, { loader as powerWallLoader } from './components/menu-components/PowerWall.jsx';
-import CommercialEnergy, { loader as commercialEnergyLoader } from './components/menu-components/CommercialEnergy.jsx';
-import Utilities, { loader as utilitesLoader } from './components/menu-components/Utilities.jsx';
-import Charging, { loader as chargingLoader } from './components/menu-components/Charging.jsx';
-import FindUs, { loader as findUsLoader } from './components/menu-components/FindUs.jsx';
-import Support, { loader as supportLoader } from './components/menu-components/Support.jsx';
-import InvestorRelations, { loader as investorRelationsLoader } from './components/menu-components/InvestorRelations.jsx';
-import Shop, { loader as shopLoader } from './components/menu-components/Shop.jsx';
-import Account, { loader as accountLoader } from './components/menu-components/Account.jsx';
-import RickRoll, { loader as rickRollLoader } from './components/menu-components/RickRoll.jsx';
+import ModelS, { loader as modelSLoader } from './pages/menu-components/ModelS.jsx';
+import ModelX, { loader as modelXLoader } from './pages/menu-components/ModelX.jsx';
+import ModelY, { loader as modelYLoader } from './pages/menu-components/ModelY.jsx';
+import Model3, { loader as model3Loader } from './pages/menu-components/Model3.jsx';
+import Roof, { loader as roofLoader } from './pages/menu-components/Roof.jsx';
+import Solarpanels, { loader as solarpanelsLoader } from './pages/menu-components/Solarpanels.jsx';
+import ExistingInventory, { loader as existingInventoryLoader } from './pages/menu-components/ExistingInventory.jsx';
+import UsedInventory, { loader as usedInventoryLoader } from './pages/menu-components/UsedInventory.jsx';
+import TradeIn, { loader as tradeInLoader } from './pages/menu-components/TradeIn.jsx';
+import TestDrive, { loader as testDriveLoader } from './pages/menu-components/TestDrive.jsx';
+import PowerWall, { loader as powerWallLoader } from './pages/menu-components/PowerWall.jsx';
+import CommercialEnergy, { loader as commercialEnergyLoader } from './pages/menu-components/CommercialEnergy.jsx';
+import Utilities, { loader as utilitesLoader } from './pages/menu-components/Utilities.jsx';
+import Charging, { loader as chargingLoader } from './pages/menu-components/Charging.jsx';
+import FindUs, { loader as findUsLoader } from './pages/menu-components/FindUs.jsx';
+import Support, { loader as supportLoader } from './pages/menu-components/Support.jsx';
+import InvestorRelations, { loader as investorRelationsLoader } from './pages/menu-components/InvestorRelations.jsx';
+import Shop, { loader as shopLoader } from './pages/menu-components/Shop.jsx';
+import Account, { loader as accountLoader } from './pages/menu-components/Account.jsx';
+import ContactMe from './pages/ContactMe.jsx';
+
+
+import RickRoll, { loader as rickRollLoader } from './pages/menu-components/RickRoll.jsx';
 
 import { createBrowserRouter, RouterProvider, createRoutesFromElements, Route } from 'react-router-dom';
-import SignIn from './components/Signin/SignIn';
+import SignIn from './pages/Signin/SignIn';
 
 function App() {
 
@@ -76,6 +79,8 @@ function App() {
         <Route path="support" element={<Support />} loader={supportLoader} />
         <Route path="investor-relations" element={<InvestorRelations />} loader={investorRelationsLoader} />
         <Route path="shop" element={<Shop />} loader={shopLoader} />
+        <Route path="contact-me" element={<ContactMe />} loader={shopLoader} />
+
         <Route path="account" element={<Account />} loader={accountLoader} />
         <Route path="rickroll" element={<RickRoll />} loader={rickRollLoader} />
         <Route path="*" element={<ErrorComponent />} />

@@ -1,9 +1,9 @@
 import { Link, Outlet } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { whereToRickRoll } from "./utils.jsx"
-import SignIn from './Signin/SignIn.jsx'
+import SignIn from '../pages/Signin/SignIn.jsx'
 
-import { seeIfLoggedIn } from "./Signin/SignIn.jsx"
+import { seeIfLoggedIn } from "../pages/Signin/SignIn.jsx"
 
 import Menu from "./Menu.jsx"
 
@@ -35,7 +35,7 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn }) {
           <Link to="model-x">Model X</Link>
           <Link to="model-y">Model Y</Link>
           <Link to="roof">Solar Roof</Link>
-          <Link to="solarpanels">Solar Panels</Link>
+          <Link to="contact-me">Contact Me</Link>
         </nav>
         <nav className="right">
           <div className="shop-link">

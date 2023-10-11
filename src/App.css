@@ -826,7 +826,7 @@ section .buttons {
 
 
 .roof {
-  background: url(./components/menu-components/assets/roof-2.png);
+  background: url(./pages/menu-components/assets/roof-2.png);
   background-size: cover;
   background-position: center center;
 }
@@ -933,11 +933,6 @@ section .buttons {
   }
 }
 
-
-
-.solarpanels {
-}
-
 .existing-inventory{
   background: url(./components/menu-components/assets/model3-2.jpg);
   background-size: cover;
@@ -963,7 +958,7 @@ section .buttons {
 }
 
 .powerwall {
-  background: url(./components/menu-components/assets/powerwall.png);
+  background: url(./pages/menu-components/assets/powerwall.png);
   background-size: cover;
   background-position: center center;
 }
@@ -1082,19 +1077,17 @@ section .buttons {
 
 
 .commercial-energy {
-  background: url(./components/menu-components/assets/commercial-energy.png);
-  background-size: cover;
-  background-position: center center;
+  
 }
 
 .utilities {
-  background: url(./components/menu-components/assets/utilities.png);
+  background: url(./pages/menu-components/assets/utilities.png);
   background-size: cover;
   background-position: center center;
 }
 
 .charging {
-  background: url(./components/menu-components/assets/charging.png);
+  background: url(./pages/menu-components/assets/charging.png);
   background-size: cover;
   background-position: center center;
 }
@@ -1380,6 +1373,20 @@ video {
   margin-top: 30px;
 }
 
+.contact-me {
+  background: red;
+  width: 100%;
+  height: 100vh;
+}
+
+.contact-me iframe {
+  position: absolute;
+  top: 10vh;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 
 @media(max-width: 900px) {
   .sign-up, .sign-in {
@@ -1397,4 +1404,15 @@ video {
     width: 100%;
     font-size: 0.8rem;
   }
+
+  
+  
+  .errorComponent h1 {
+    font-size: 7rem;
+  }
+
+  .errorComponent p {
+    font-size: 0.9rem;
+  }
+
 }
