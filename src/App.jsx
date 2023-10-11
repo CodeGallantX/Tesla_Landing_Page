@@ -23,7 +23,7 @@ import Support, { loader as supportLoader } from './pages/menu-components/Suppor
 import InvestorRelations, { loader as investorRelationsLoader } from './pages/menu-components/InvestorRelations.jsx';
 import Shop, { loader as shopLoader } from './pages/menu-components/Shop.jsx';
 import Account, { loader as accountLoader } from './pages/menu-components/Account.jsx';
-import ContactMe from './pages/ContactMe.jsx';
+import ContactMe from './pages/Contact/ContactMe.jsx';
 
 
 import RickRoll, { loader as rickRollLoader } from './pages/menu-components/RickRoll.jsx';
