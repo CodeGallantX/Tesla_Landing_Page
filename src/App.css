@@ -1394,6 +1394,21 @@ video {
   }
 }
 
+
+#contact-container {
+  position: absolute;
+  margin: 0;
+  top: 0px;
+  left: 0px;
+  background: url(./pages/Contact/assets/herobg.png);
+  background-position: center center;
+  background-size: cover;
+  width: 100vw;
+  height: fit-content;
+  padding: 20px;
+}
+
+
 @media(max-width: 400px) {
 
   .sign-up, .sign-in {

@@ -4,8 +4,11 @@ import emailjs from "@emailjs/browser";
 
 import { styles } from "./styles";
 import { EarthCanvas } from "./canvas";
+import { StarsCanvas } from "./canvas";
 import { SectionWrapper } from "./hoc";
 import { slideIn } from "./utils/motion";
+
+import heroBg from "./assets/herobg.png";
 
 const Contact = () => {
   const formRef = useRef();
@@ -66,8 +69,11 @@ const Contact = () => {
 
   return (
     <div
-      className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}
+      id="contact-container"
+      className={`flex xl:flex-row flex-col-reverse gap-10`}
     >
+      
+      <StarsCanvas style={{position: "absolute", top: "0px", left: "0px", zIndex: "40"}} />
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
         className='flex-[0.75] bg-black-100 p-8 rounded-2xl'
@@ -76,6 +82,7 @@ const Contact = () => {
         <h3 className={styles.sectionHeadText}>Contact.</h3>
 
         <form
+          
           ref={formRef}
           onSubmit={handleSubmit}
           className='mt-12 flex flex-col gap-8'
@@ -87,8 +94,7 @@ const Contact = () => {
               name='name'
               value={form.name}
               onChange={handleChange}
-              placeholder="What's your good name?"
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              placeholder="What's your good name?"inpu           className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
             />
           </label>
           <label className='flex flex-col'>
