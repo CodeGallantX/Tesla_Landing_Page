@@ -3,6 +3,8 @@ import './App.css';
 import Home, { loader as homeLoader } from './pages/Home/Home';
 import Navbar from './components/Navbar';
 import ErrorComponent from './components/ErrorComponent';
+import AccountLayout from "./components/AccountLayout.jsx"
+
 
 import ModelS, { loader as modelSLoader } from './pages/menu-components/ModelS.jsx';
 import ModelX, { loader as modelXLoader } from './pages/menu-components/ModelX.jsx';
@@ -22,7 +24,9 @@ import FindUs, { loader as findUsLoader } from './pages/menu-components/FindUs.j
 import Support, { loader as supportLoader } from './pages/menu-components/Support.jsx';
 import InvestorRelations, { loader as investorRelationsLoader } from './pages/menu-components/InvestorRelations.jsx';
 import Shop, { loader as shopLoader } from './pages/menu-components/Shop.jsx';
-import Account, { loader as accountLoader } from './pages/menu-components/Account.jsx';
+import Account from './pages/Account/Account.jsx';
+import AccountCars from './pages/Account/AccountCars.jsx';
+import AccountCredits from './pages/Account/AccountCredits.jsx';
 import ContactMe from './pages/Contact/ContactMe.jsx';
 
 
@@ -81,7 +85,11 @@ function App() {
         <Route path="shop" element={<Shop />} loader={shopLoader} />
         <Route path="contact-me" element={<ContactMe />} loader={shopLoader} />
 
-        <Route path="account" element={<Account />} loader={accountLoader} />
+        <Route path="account" element={<AccountLayout />}>
+          <Route index element={<Account isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
+          <Route path="buy-credits" element={<AccountCredits />} />
+          <Route path="cars" element={<AccountCars />} />
+        </Route>
         <Route path="rickroll" element={<RickRoll />} loader={rickRollLoader} />
         <Route path="*" element={<ErrorComponent />} />
       </Route>

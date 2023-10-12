@@ -51,18 +51,18 @@ export default function Menu(props) {
             <Link to="solarpanels" onClick={props.toggleMenu}>
               Solar Panels
             </Link>
-            {
-              whereToRickRoll("Existing Inventory", props.toggleMenu)
-            }
-            {
-              whereToRickRoll("Used Inventory", props.toggleMenu)
-            }
-            {
-              whereToRickRoll("Trade-In", props.toggleMenu)
-            }
-            {
-              whereToRickRoll("Test Drive", props.toggleMenu)
-            }
+            <Link to="existing-inventory" onClick={props.toggleMenu}>
+              Existing Inventory
+            </Link>
+            <Link to="Used-inventory" onClick={props.toggleMenu}>
+              Used Inventory
+            </Link>
+            <Link to="trade-in" onClick={props.toggleMenu}>
+              Trade-In
+            </Link>
+            <Link to="test-drive" onClick={props.toggleMenu}>
+              Test Drive
+            </Link>
             <Link to="powerwall" onClick={props.toggleMenu}>
               Powerwall
             </Link>
@@ -78,18 +78,18 @@ export default function Menu(props) {
             {
               whereToRickRoll("Find Us", props.toggleMenu)
             }
-            {
-              whereToRickRoll("Support", props.toggleMenu)
-            }
-            {
-              whereToRickRoll("Investor Relations", props.toggleMenu)
-            }
-            {
-              whereToRickRoll("Shop", props.toggleMenu)
-            }
-            {
-              whereToRickRoll("Account", props.toggleMenu)
-            }
+            <Link to="support" onClick={props.toggleMenu}>
+              Support
+            </Link>
+            <Link to="investor-relations" onClick={props.toggleMenu}>
+              Investor Relations
+            </Link>
+            <Link to="shop" onClick={props.toggleMenu}>
+              Shop
+            </Link>
+            <Link to="account" onClick={props.toggleMenu}>
+              Account
+            </Link>
           </nav>
         </div>
       </div>

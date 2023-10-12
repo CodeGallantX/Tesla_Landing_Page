@@ -46,9 +46,8 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn }) {
             )}
           </div>
           <div className="account-link">
-            {
-              whereToRickRoll("Account", closeMenu)
-            }
+            <Link to="account">Account</Link>
+            
           </div>
           <button onClick={toggleMenu}>Menu</button>
         </nav>

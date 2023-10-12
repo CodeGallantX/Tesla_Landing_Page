@@ -43,32 +43,45 @@ export default function SignIn({ onSignIn }) {
   const handleEmailSignIn = (email, password) => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        console.log(`User signed in with email:`, userCredential.user.email);
-        setValue(userCredential.user.email);
-        localStorage.setItem("email", userCredential.user.email);
-        onSignIn(userCredential.user.email);
-        setError({ signIn: null, signUp: null });
+        const user = userCredential.user;
+        console.log(`User signed in with email:`, user.email);
+        
+        // Retrieve and save the user's photoURL from the user's profile
+        getAdditionalUserData(user).then((userData) => {
+          localStorage.setItem("email", user.email);
+          localStorage.setItem("photoURL", userData.photoURL);
+          setValue(user.email);
+          onSignIn(user.email);
+          setError({ signIn: null, signUp: null });
+        });
       })
       .catch((error) => {
         console.error(`Error signing in with email:`, error);
         setError({ signIn: "Invalid credentials", signUp: null });
       });
   };
-
+  
   const handleEmailSignUp = (email, password) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        console.log(`User signed up with email:`, userCredential.user.email);
-        setValue(userCredential.user.email);
-        localStorage.setItem("email", userCredential.user.email);
-        onSignIn(userCredential.user.email);
-        setError({ signIn: null, signUp: null });
+        const user = userCredential.user;
+        console.log(`User signed up with email:`, user.email);
+        
+        // Retrieve and save the user's photoURL from the user's profile
+        getAdditionalUserData(user).then((userData) => {
+          localStorage.setItem("email", user.email);
+          localStorage.setItem("photoURL", userData.photoURL);
+          setValue(user.email);
+          onSignIn(user.email);
+          setError({ signIn: null, signUp: null });
+        });
       })
       .catch((error) => {
         console.error(`Error signing up with email:`, error);
         setError({ signIn: null, signUp: "Invalid credentials" });
       });
   };
+  
 
   const handleClick = (provider) => {
     let authProvider;

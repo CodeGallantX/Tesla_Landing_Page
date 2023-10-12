@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Poppins,sans-serif;
+  font-family: "Poppins",sans-serif !important;
 }
 
 body {
@@ -279,7 +279,6 @@ section .buttons {
 .support, 
 .investor-relations, 
 .shop,
-.account,
 .errorComponent,
 .auth-component
 
@@ -1198,8 +1197,8 @@ video {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh !important;
   object-fit: cover;
   z-index: -1;
   overflow: hidden;
@@ -1411,9 +1410,219 @@ video {
   padding: 20px;
   padding-top: 80px;
   z-index: 1;
-  
+
 }
 
+.account-layout {
+  height: 90vh;
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+  padding-top: 5vh;
+  left: 0;
+  background: url(./pages/Account/assets/account-profile-img-background.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+
+.account-layout nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: #fff;
+  padding: 20px;
+  margin-left: 20px;
+  padding-left: 50px;
+  background: rgba(0, 0, 0, 0.664);
+  width: fit-content;
+  border-radius: 15px;
+  backdrop-filter: blur(50px);
+
+}
+
+.account-layout nav a {
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.3rem;
+}
+
+.account {
+  width: 90vw;
+  margin: auto;
+  margin-top: 20px;
+  height: 80%;
+  padding: 20px;
+  background: rgba(255, 0, 0, 0.685);
+  backdrop-filter: blur(50px);
+  border-radius: 20px;
+  border-left: 1px solid white;
+  border-top: 1px solid white;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.account-details, .account-leaderboard, .account-people {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  background: linear-gradient(white, yellow);
+  border-radius: 5px;
+  box-shadow: rgba(255, 255 0.25) 0px 54px 55px, rgba(255, 255 0.12) 0px -12px 30px, rgba(255, 255 0.12) 0px 4px 6px, rgba(255, 255 0.17) 0px 12px 13px, rgba(255, 255 0.09) 0px -3px 5px;
+}
+
+
+.account-people {
+  background: linear-gradient(white, orange);
+}
+
+.account-leaderboard {
+  background: linear-gradient(white, blue);
+}
+
+.account-details {
+}
+
+.account-details .userImage-container {
+  position: relative;
+  background: url(./pages/Account/assets/account-bg.jpg);
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  align-items: center;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  justify-content: center;
+  width: 100%;
+  height: 40%;
+}
+
+.account-details img {
+  position: absolute;
+  bottom: -60px;
+  border-radius: 15px;
+  border: 1px solid black;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  width: 120px;
+}
+
+.account-details h1 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.account-details h1 span {
+  font-weight: normal;
+}
+
+.account-details h1:nth-of-type(1) {
+  margin-top: 60px;
+  font-weight: bold;
+  
+
+}
+
+
+
+.account-details .button-container {
+  width: 100%;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.account-details .button-container button, .account-people a {
+  
+  padding: 10px 50px;
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+  border-radius: 5px;
+  background: blue;
+  border: 1px solid black;
+  color: white;
+  font-weight: bold;
+
+}
+
+
+
+.account-people {
+
+  padding: 20px;
+}
+
+.account-people .account-users-container {
+  margin-bottom: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+
+
+.account-people .account-user, .account-user-explanation {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgb(252, 252, 239);
+  width: 100%;
+  padding: 7px 14px;
+  border-radius: 7px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.377);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+
+.account-people .account-user-explanation {
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+  background: black;
+  color: white;
+
+}
+
+.account-user-explanation p:nth-of-type(1) {
+  text-indent: 54px;
+}
+
+.account-user h2 {
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+.account-user img {
+  width: 35px;
+  border-radius: 5px;
+}
+
+.account-people h1:nth-of-type(1) {
+  font-size: 1.7rem;
+  font-weight: bold;
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+  0px 8px 13px rgba(0,0,0,0.1),
+  0px 18px 23px rgba(0,0,0,0.1);
+}
+
+.account-leaderboard {
+  padding: 20px;
+}
+
+.account-leaderboard h1:nth-of-type(1) {
+  margin-bottom: auto;
+  font-weight: bold;
+  font-size: 1.7rem;
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+    0px 8px 13px rgba(0,0,0,0.1),
+    0px 18px 23px rgba(0,0,0,0.1);
+}
 
 @media(max-width: 400px) {
 

@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router-dom";
 export function loader() {
   return (
     <div className="existing-inventory">
-      <div div id="player"></div>
+      <h1>Hello</h1>
     </div>
   )
 }
