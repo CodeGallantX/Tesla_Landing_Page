@@ -71,14 +71,16 @@ const Contact = () => {
     <div
       id="contact-container"
       className={`flex xl:flex-row flex-col-reverse gap-10`}
+
     >
       
-      <StarsCanvas style={{position: "absolute", top: "0px", left: "0px", zIndex: "40"}} />
+      <StarsCanvas />
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
         className='flex-[0.75] bg-black-100 p-8 rounded-2xl'
+        style={{background: "rgb(16, 13, 37)"}}
       >
-        <p className={styles.sectionSubText}>Get in touch</p>
+        <p className={styles.sectionSubText} style={{color: "rgb(170, 166, 195)"}}>Get in touch</p>
         <h3 className={styles.sectionHeadText}>Contact.</h3>
 
         <form
@@ -88,10 +90,11 @@ const Contact = () => {
           className='mt-12 flex flex-col gap-8'
         >
           <label className='flex flex-col'>
-            <span className='text-white font-medium mb-4'>Your Name</span>
+            <span className='text-white font-medium mb-4' style={{fontWeight: "500"}}>Your Name</span>
             <input
               type='text'
               name='name'
+              style={{background: "rgb(21, 16, 48)"}}
               value={form.name}
               onChange={handleChange}
               placeholder="What's your good name?"
@@ -102,6 +105,8 @@ const Contact = () => {
             <span className='text-white font-medium mb-4'>Your email</span>
             <input
               type='email'
+              style={{background: "rgb(21, 16, 48)"}}
+
               name='email'
               value={form.email}
               onChange={handleChange}
@@ -115,14 +120,18 @@ const Contact = () => {
               rows={7}
               name='message'
               value={form.message}
+              style={{background: "rgb(21, 16, 48)"}}
+
               onChange={handleChange}
               placeholder='What you want to say?'
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-black rounded-lg outline-none border-none font-medium'
+              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
             />
           </label>
 
           <button
             type='submit'
+            style={{background: "rgb(21, 16, 48)", boxShadow: "rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px"}}
+
             className='bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary'
           >
             {loading ? "Sending..." : "Send"}

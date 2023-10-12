@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: Poppins,sans-serif;
 }
 
 body {
@@ -1401,13 +1402,16 @@ video {
   top: 0px;
   left: 0px;
   width: 100vw;
-  background: url(./pages/Contact/assets/herobg.png);
+  background: rgb(5, 8, 22);
+  /* background: url(./pages/Contact/assets/herobg.png);
   background-position: center center;
-  background-size: cover;
+  background-size: cover; */
   min-height: 100vh;
   height: fit-content;
   padding: 20px;
   padding-top: 80px;
+  z-index: 1;
+  
 }
 
 
