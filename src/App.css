@@ -1400,12 +1400,14 @@ video {
   margin: 0;
   top: 0px;
   left: 0px;
+  width: 100vw;
   background: url(./pages/Contact/assets/herobg.png);
   background-position: center center;
   background-size: cover;
-  width: 100vw;
+  min-height: 100vh;
   height: fit-content;
   padding: 20px;
+  padding-top: 80px;
 }
 
 
