@@ -19,14 +19,13 @@ const githubProvider = new GithubAuthProvider();
 const facebookProvider = new FacebookAuthProvider();
 const twitterProvider = new TwitterAuthProvider();
 const db = getFirestore(app);
-let displayName, email, photoURL, emailVerified, uid;
+let displayName, email, photoURL, emailVerified;
 
 const addUserToFirestore = async (user) => {
   displayName = user.displayName;
   email = user.email;
   photoURL = user.photoURL;
   emailVerified = user.emailVerified;
-  uid = user.uid;
   
   // Get the ID of the last document in the 'Users' collection
   const querySnapshot = await getDocs(collection(db, 'Users'));
@@ -48,7 +47,6 @@ const addUserToFirestore = async (user) => {
   const newDocRef = await setDoc(doc(db, 'Users', newDocId.toString()), docData);
 
   console.log(newDocRef);
-  const uid = user.uid;
 };// Listen for changes in the user's authentication state
 onAuthStateChanged(auth, (user) => {
   if (user) {
@@ -56,4 +54,4 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-export { auth, googleProvider, githubProvider, facebookProvider, twitterProvider, displayName, email, photoURL, emailVerified, uid };
+export { auth, googleProvider, githubProvider, facebookProvider, twitterProvider, displayName, email, photoURL, emailVerified };

@@ -1,4 +1,4 @@
-import { displayName, email, photoURL, emailVerified, uid } from "../Signin/config.js";
+import { displayName, email, photoURL, emailVerified } from "../Signin/config.js";
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom"
  
