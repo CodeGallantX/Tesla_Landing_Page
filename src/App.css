@@ -1479,6 +1479,13 @@ video {
   gap: 20px;
 }
 
+@media(max-width: 900px) {
+  .account {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+}
+
 .account-details, .account-leaderboard, .account-people {
   display: flex;
   flex-direction: column;
