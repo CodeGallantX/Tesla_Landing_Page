@@ -26,7 +26,8 @@ const addUserToFirestore = async (user) => {
   email = user.email;
   photoURL = user.photoURL;
   emailVerified = user.emailVerified;
-
+  uid = user.uid;
+  
   // Get the ID of the last document in the 'Users' collection
   const querySnapshot = await getDocs(collection(db, 'Users'));
   const lastDoc = querySnapshot.docs[querySnapshot.docs.length - 1];

@@ -20,6 +20,9 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn }) {
 
   function logOut() {
     localStorage.removeItem("email");
+    localStorage.removeItem("emailVerified");
+    localStorage.removeItem("displayName");
+    localStorage.removeItem("photoURL");
     setIsLoggedIn(false);
     window.location.reload();
   }

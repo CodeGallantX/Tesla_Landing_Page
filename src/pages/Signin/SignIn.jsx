@@ -45,36 +45,46 @@ export default function SignIn({ onSignIn }) {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(`User signed in with email:`, user.email);
-        
-        // Retrieve and save the user's photoURL from the user's profile
-        getAdditionalUserData(user).then((userData) => {
-          localStorage.setItem("email", user.email);
-          localStorage.setItem("photoURL", userData.photoURL);
-          setValue(user.email);
-          onSignIn(user.email);
-          setError({ signIn: null, signUp: null });
-        });
+
+        // Access user data directly from the user object
+        const { displayName, email, photoURL, emailVerified } = user;
+
+        // Update local storage and state
+        localStorage.setItem("email", email);
+        localStorage.setItem("photoURL", photoURL);
+        localStorage.setItem("displayName", displayName);
+        localStorage.setItem("emailVerified", emailVerified);
+        setValue(email);
+
+        // Call the onSignIn callback
+        onSignIn(email);
+        setError({ signIn: null, signUp: null });
       })
       .catch((error) => {
         console.error(`Error signing in with email:`, error);
         setError({ signIn: "Invalid credentials", signUp: null });
       });
   };
-  
+
   const handleEmailSignUp = (email, password) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(`User signed up with email:`, user.email);
-        
-        // Retrieve and save the user's photoURL from the user's profile
-        getAdditionalUserData(user).then((userData) => {
-          localStorage.setItem("email", user.email);
-          localStorage.setItem("photoURL", userData.photoURL);
-          setValue(user.email);
-          onSignIn(user.email);
-          setError({ signIn: null, signUp: null });
-        });
+
+        // Access user data directly from the user object
+        const { displayName, email, photoURL, emailVerified } = user;
+
+        // Update local storage and state
+        localStorage.setItem("email", email);
+        localStorage.setItem("photoURL", photoURL);
+        localStorage.setItem("displayName", displayName);
+        localStorage.setItem("emailVerified", emailVerified);
+        setValue(email);
+
+        // Call the onSignIn callback
+        onSignIn(email);
+        setError({ signIn: null, signUp: null });
       })
       .catch((error) => {
         console.error(`Error signing up with email:`, error);
@@ -98,9 +108,14 @@ export default function SignIn({ onSignIn }) {
     }
     signInWithPopup(auth, authProvider)
       .then((data) => {
+
+
         console.log(`User signed in with ${provider}:`, data.user.email);
         setValue(data.user.email);
         localStorage.setItem("email", data.user.email);
+        localStorage.setItem("photoURL", data.user.photoURL);
+        localStorage.setItem("displayName", data.user.displayName);
+        localStorage.setItem("emailVerified", data.user.emailVerified);
         onSignIn(data.user.email);
         setError({ signIn: null, signUp: null });
       })

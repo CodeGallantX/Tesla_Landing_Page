@@ -1205,7 +1205,7 @@ video {
 }
 
 .auth-container {
-  background: url(./components/assets/model-3.png);
+  background: url(./pages/Home/assets/model-3.png);
   background-position: center center;
   background-size: cover;
 }
@@ -1535,7 +1535,7 @@ video {
   margin-bottom: 50px;
 }
 
-.account-details .button-container button, .account-people a {
+.account-details .button-container button, .account-details .button-container a, .account-people a {
   
   padding: 10px 50px;
   width: 80%;

@@ -3,55 +3,71 @@ import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom"
  
 
+
 import elonMuskImg from "./assets/elon-musk.png"
+import guestPhoto from "./assets/guest-photo.png"
 
 export default function Account({ isLoggedIn, setIsLoggedIn }) {
-  const [userData, setUserData] = useState(null);
+  const [userData, setUserData] = useState({
+    displayName: "not sure",
+    email: "not sure",
+    photoURL: guestPhoto
+  });
+
+
 
   useEffect(() => {
+    const storedDisplayName = localStorage.getItem('displayName');
+    const storedPhotoURL = localStorage.getItem('photoURL');
     // Fetch user data here, e.g., from localStorage or an API
     const user = {
-      displayName: localStorage.getItem('displayName'),
-      email: localStorage.getItem('email'),
-      photoURL: localStorage.getItem('photoUrl'), // Use the correct key
+      displayName: storedDisplayName === "null" ? "not sure" : storedDisplayName,
+      email: localStorage.getItem('email') || "not sure",
+      photoURL: storedPhotoURL === "null" ? guestPhoto : storedPhotoURL
+      // Use the correct key
     };
   
     // Set the user data in the state
     setUserData(user);
   }, []);
-  
 
   function logOut() {
     localStorage.removeItem("email");
+    localStorage.removeItem("photoURL");
+    localStorage.removeItem("displayName");
+    localStorage.removeItem("emailVerified");
     setIsLoggedIn(false);
     window.location.reload();
-  }
-
-  if (!isLoggedIn || userData === null) {
-    // Data is not available, display a loading state or a message
-    return <div>Loading...</div>;
   }
 
   return (
     <div className="account">
       <div className="account-details">
-        {
-          userData.photoURL && 
+        {userData && userData.photoURL ? (
           <div className="userImage-container">
             <img src={userData.photoURL} alt="photo" />
           </div>
-        }
-        <h1>Email: <span>{userData.email}</span></h1>
-        <h1>Name : <span>{userData.displayName}</span></h1>
+        ) : (
+          <div className="userImage-container">
+            <img src={guestPhoto} alt="guest photo" />
+          </div>
+        )}
+        <h1>Email: <span>{userData && userData.email}</span></h1>
+        <h1>Name: <span>{userData && userData.displayName}</span></h1>
         <div className="button-container">
-          <button onClick={logOut}>
-            Log Out
-          </button>
+          {userData.email === "not sure" ? (
+            <Link to="/">Log In</Link>
+          ) : (
+            <button onClick={logOut}>
+              Log Out
+            </button>
+          )}
           <button onClick={logOut}>
             Edit Profile
           </button>
         </div>
       </div>
+
       <div className="account-people">
         <h1>Other Users</h1> 
         <div className="account-users-container">
