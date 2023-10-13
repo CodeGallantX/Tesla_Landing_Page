@@ -41,68 +41,71 @@ export default function Account({ isLoggedIn, setIsLoggedIn }) {
   }
 
   return (
-    <div className="account">
-      <div className="account-details">
-        {userData && userData.photoURL ? (
-          <div className="userImage-container">
-            <img src={userData.photoURL} alt="photo" />
-          </div>
-        ) : (
-          <div className="userImage-container">
-            <img src={guestPhoto} alt="guest photo" />
-          </div>
-        )}
-        <h1>Email: <span>{userData && userData.email}</span></h1>
-        <h1>Name: <span>{userData && userData.displayName}</span></h1>
-        <div className="button-container">
-          {userData.email === "not sure" ? (
-            <Link to="/">Log In</Link>
-          ) : (
-            <button onClick={logOut}>
-              Log Out
-            </button>
-          )}
-          <button onClick={logOut}>
-            Edit Profile
-          </button>
-        </div>
-      </div>
+    <div className="account-container">
 
-      <div className="account-people">
-        <h1>Other Users</h1> 
-        <div className="account-users-container">
+      <div className="account">
+        <div className="account-details">
+          {userData && userData.photoURL ? (
+            <div className="userImage-container">
+              <img src={userData.photoURL} alt="photo" />
+            </div>
+          ) : (
+            <div className="userImage-container">
+              <img src={guestPhoto} alt="guest photo" />
+            </div>
+          )}
+          <h1>Email: <span>{userData && userData.email}</span></h1>
+          <h1>Name: <span>{userData && userData.displayName}</span></h1>
+          <div className="button-container">
+            {userData.email === "not sure" ? (
+              <Link to="/">Log In</Link>
+            ) : (
+              <button onClick={logOut}>
+                Log Out
+              </button>
+            )}
+            <button onClick={logOut}>
+              Edit Profile
+            </button>
+          </div>
+        </div>
+
+        <div className="account-people">
+          <h1>Other Users</h1> 
+          <div className="account-users-container">
+            <div className="account-user-explanation">
+              <p>name</p>
+              <p>bank balance</p>
+            </div>
+            <div className="account-user">
+              <img src={elonMuskImg} alt="" />
+              <h2>Elon Musk</h2>
+            </div>
+            <div className="account-user">
+              <img src={elonMuskImg} alt="" />
+              <h2>Elon Musk</h2>
+            </div>
+            <div className="account-user">
+              <img src={elonMuskImg} alt="" />
+              <h2>Elon Musk</h2>
+            </div>
+            <div className="account-user">
+              <img src={elonMuskImg} alt="" />
+              <h2>Elon Musk</h2>
+            </div>
+            <div className="account-user">
+              <img src={elonMuskImg} alt="" />
+              <h2>Elon Musk</h2>
+            </div>
+          </div>
+          <Link to="users">More People</Link>
+        </div>
+        <div className="account-leaderboard">
+          <h1>Leaderboard (Top 10):</h1>
           <div className="account-user-explanation">
             <p>name</p>
             <p>bank balance</p>
           </div>
-          <div className="account-user">
-            <img src={elonMuskImg} alt="" />
-            <h2>Elon Musk</h2>
-          </div>
-          <div className="account-user">
-            <img src={elonMuskImg} alt="" />
-            <h2>Elon Musk</h2>
-          </div>
-          <div className="account-user">
-            <img src={elonMuskImg} alt="" />
-            <h2>Elon Musk</h2>
-          </div>
-          <div className="account-user">
-            <img src={elonMuskImg} alt="" />
-            <h2>Elon Musk</h2>
-          </div>
-          <div className="account-user">
-            <img src={elonMuskImg} alt="" />
-            <h2>Elon Musk</h2>
-          </div>
-        </div>
-        <Link to="users">More People</Link>
-      </div>
-      <div className="account-leaderboard">
-        <h1>Leaderboard (Top 10):</h1>
-        <div className="account-user-explanation">
-          <p>name</p>
-          <p>bank balance</p>
         </div>
       </div>
     </div>

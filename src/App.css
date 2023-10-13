@@ -1414,18 +1414,37 @@ video {
 }
 
 .account-layout {
-  height: 90vh;
+  min-height: 100vh;
+  height: fit-content;
   width: 100vw;
   position: absolute;
   bottom: 0;
   padding-top: 5vh;
   left: 0;
+}
+
+.account-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  padding-top: 25vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 40px;
+  height: fit-content;
+  min-height: 100vh;
   background: url(./pages/Account/assets/account-profile-img-background.jpg);
   background-size: cover;
   background-position: center center;
+  
 }
 
 .account-layout nav {
+  position: absolute;
+  top: 12.5vh;
+  z-index: 500;
   display: flex;
   align-items: center;
   gap: 20px;
@@ -1448,9 +1467,7 @@ video {
 
 .account {
   width: 90vw;
-  margin: auto;
-  margin-top: 20px;
-  height: 80%;
+  height: fit-content;
   padding: 20px;
   background: rgba(255, 0, 0, 0.685);
   backdrop-filter: blur(50px);
