@@ -51,18 +51,18 @@ export default function Menu(props) {
             <Link to="solarpanels" onClick={props.toggleMenu}>
               Solar Panels
             </Link>
-            <Link to="existing-inventory" onClick={props.toggleMenu}>
-              Existing Inventory
-            </Link>
-            <Link to="Used-inventory" onClick={props.toggleMenu}>
-              Used Inventory
-            </Link>
-            <Link to="trade-in" onClick={props.toggleMenu}>
-              Trade-In
-            </Link>
-            <Link to="test-drive" onClick={props.toggleMenu}>
-              Test Drive
-            </Link>
+            {
+              whereToRickRoll("Existing Inventory", props.toggleMenu)
+            }
+            {
+              whereToRickRoll("Used Inventory", props.toggleMenu)
+            }
+            {
+              whereToRickRoll("Trade-In", props.toggleMenu)
+            }
+            {
+              whereToRickRoll("Test Drive", props.toggleMenu)
+            }
             <Link to="powerwall" onClick={props.toggleMenu}>
               Powerwall
             </Link>
@@ -78,15 +78,16 @@ export default function Menu(props) {
             {
               whereToRickRoll("Find Us", props.toggleMenu)
             }
-            <Link to="support" onClick={props.toggleMenu}>
-              Support
-            </Link>
-            <Link to="investor-relations" onClick={props.toggleMenu}>
-              Investor Relations
-            </Link>
-            <Link to="shop" onClick={props.toggleMenu}>
-              Shop
-            </Link>
+            {
+              whereToRickRoll("Support", props.toggleMenu)
+            }
+            {
+              whereToRickRoll("Investor Relations", props.toggleMenu)
+            }
+            {
+              whereToRickRoll("Shop", props.toggleMenu)
+            }
+            
             <Link to="account" onClick={props.toggleMenu}>
               Account
             </Link>

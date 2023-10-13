@@ -10,7 +10,7 @@ export function whereToRickRoll(text, toggleMenu) {
 
   if (isChrome()) {
     return (
-      <Link to="rickroll" onClick={toggleMenu}>
+      <Link to="r" onClick={toggleMenu}>
         {text}
       </Link>
     )

@@ -90,7 +90,7 @@ function App() {
           <Route path="buy-credits" element={<AccountCredits />} />
           <Route path="cars" element={<AccountCars />} />
         </Route>
-        <Route path="rickroll" element={<RickRoll />} loader={rickRollLoader} />
+        <Route path="r" element={<RickRoll />} loader={rickRollLoader} />
         <Route path="*" element={<ErrorComponent />} />
       </Route>
     )

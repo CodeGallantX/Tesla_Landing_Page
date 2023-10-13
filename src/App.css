@@ -1559,7 +1559,7 @@ video {
   margin-bottom: 50px;
 }
 
-.account-details .button-container button, .account-details .button-container a, .account-people a {
+.account-details .button-container button, .account-details .button-container a, .account-people a, .account-leaderboard a {
   
   padding: 10px 50px;
   width: 80%;
@@ -1580,7 +1580,7 @@ video {
   padding: 20px;
 }
 
-.account-people .account-users-container {
+.account-users-container {
   margin-bottom: auto;
   display: flex;
   flex-direction: column;
@@ -1590,7 +1590,7 @@ video {
 
 
 
-.account-people .account-user, .account-user-explanation {
+.account-user, .account-user-explanation {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -1603,7 +1603,7 @@ video {
 }
 
 
-.account-people .account-user-explanation {
+.account-user-explanation {
   padding: 12px 14px;
   display: flex;
   align-items: center;
@@ -1646,6 +1646,10 @@ video {
   text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
     0px 8px 13px rgba(0,0,0,0.1),
     0px 18px 23px rgba(0,0,0,0.1);
+}
+
+.account-leaderboard a {
+  background: red;
 }
 
 @media(max-width: 400px) {

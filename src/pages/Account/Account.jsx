@@ -64,9 +64,9 @@ export default function Account({ isLoggedIn, setIsLoggedIn }) {
                 Log Out
               </button>
             )}
-            <button onClick={logOut}>
+            <Link to="/r">
               Edit Profile
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -98,14 +98,38 @@ export default function Account({ isLoggedIn, setIsLoggedIn }) {
               <h2>Elon Musk</h2>
             </div>
           </div>
-          <Link to="users">More People</Link>
+          <Link to="/r">More People</Link>
         </div>
         <div className="account-leaderboard">
           <h1>Leaderboard (Top 10):</h1>
-          <div className="account-user-explanation">
-            <p>name</p>
-            <p>bank balance</p>
+          <div className="account-users-container">
+
+            <div className="account-user-explanation">
+              <p>name</p>
+              <p>bank balance</p>
+            </div>
+            <div className="account-user">
+              <img src={elonMuskImg} alt="" />
+              <h2>Elon Musk</h2>
+            </div>
+            <div className="account-user">
+              <img src={elonMuskImg} alt="" />
+              <h2>Elon Musk</h2>
+            </div>
+            <div className="account-user">
+              <img src={elonMuskImg} alt="" />
+              <h2>Elon Musk</h2>
+            </div>
+            <div className="account-user">
+              <img src={elonMuskImg} alt="" />
+              <h2>Elon Musk</h2>
+            </div>
+            <div className="account-user">
+              <img src={elonMuskImg} alt="" />
+              <h2>Elon Musk</h2>
+            </div>
           </div>
+          <Link to="/r">Show All</Link>
         </div>
       </div>
     </div>

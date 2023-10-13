@@ -20,13 +20,13 @@ export default function AccountLayout() {
           Account
         </NavLink>
         <NavLink 
-          to="buy-credits"
+          to="/r"
           style={({ isActive }) => isActive ? activeStyles : null}
         >
           Buy Credits
         </NavLink>
         <NavLink 
-          to="cars"
+          to="/r"
           style={({ isActive }) => isActive ? activeStyles : null}
         >
           Cars
